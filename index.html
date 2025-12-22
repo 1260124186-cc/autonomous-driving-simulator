@@ -18,18 +18,45 @@
 
     <main class="main-content">
       <section class="simulation-view">
-        <h2>模拟驾驶视图</h2>
+        <div class="section-header">
+          <h2>模拟驾驶视图</h2>
+          <div class="view-controls">
+            <span class="view-status active">● 实时</span>
+          </div>
+        </div>
         <div class="view-container">
           <div class="road-simulation">
-            <div class="road"></div>
-            <div class="vehicle"></div>
+            <div class="sky"></div>
+            <div class="road-lane">
+              <div class="lane-marking"></div>
+              <div class="lane-marking"></div>
+            </div>
+            <div class="vehicle">
+              <div class="vehicle-window"></div>
+              <div class="vehicle-wheel wheel-front-left"></div>
+              <div class="vehicle-wheel wheel-front-right"></div>
+              <div class="vehicle-wheel wheel-rear-left"></div>
+              <div class="vehicle-wheel wheel-rear-right"></div>
+            </div>
             <div class="obstacles">
-              <div class="obstacle obstacle-1"></div>
-              <div class="obstacle obstacle-2"></div>
+              <div class="obstacle obstacle-1" data-type="车辆">
+                <div class="obstacle-label">车辆</div>
+              </div>
+              <div class="obstacle obstacle-2" data-type="行人">
+                <div class="obstacle-label">行人</div>
+              </div>
             </div>
             <div class="traffic-signs">
-              <div class="sign stop-sign">停</div>
-              <div class="sign speed-limit">50</div>
+              <div class="sign stop-sign" title="停止标志">
+                <span>停</span>
+              </div>
+              <div class="sign speed-limit" title="限速标志">
+                <span>50</span>
+              </div>
+            </div>
+            <div class="detection-overlay">
+              <div class="detection-box box-1"></div>
+              <div class="detection-box box-2"></div>
             </div>
           </div>
         </div>
@@ -38,62 +65,114 @@
       <section class="dashboard">
         <h2>车辆状态仪表盘</h2>
         <div class="dashboard-grid">
-          <div class="metric">
+          <div class="metric speed-meter">
+            <div class="metric-icon">🚗</div>
             <label>速度</label>
-            <span class="value">45 km/h</span>
+            <span class="value">45 <small>km/h</small></span>
+            <div class="meter-bar">
+              <div class="meter-fill" style="width: 45%"></div>
+            </div>
           </div>
           <div class="metric">
+            <div class="metric-icon">⚡</div>
             <label>加速度</label>
-            <span class="value">0.8 m/s²</span>
+            <span class="value">0.8 <small>m/s²</small></span>
           </div>
           <div class="metric">
+            <div class="metric-icon">🔄</div>
             <label>方向盘角度</label>
             <span class="value">-5°</span>
           </div>
-          <div class="metric">
+          <div class="metric status-normal">
+            <div class="metric-icon">🛑</div>
             <label>刹车状态</label>
             <span class="value">正常</span>
           </div>
           <div class="metric">
+            <div class="metric-icon">⛽</div>
             <label>油门状态</label>
             <span class="value">35%</span>
+            <div class="meter-bar">
+              <div class="meter-fill" style="width: 35%"></div>
+            </div>
           </div>
-          <div class="metric">
+          <div class="metric gps">
+            <div class="metric-icon">📍</div>
             <label>GPS定位</label>
-            <span class="value">N39.9087°, E116.3975°</span>
+            <span class="value">N39.9087°<br>E116.3975°</span>
           </div>
         </div>
       </section>
 
       <section class="detection">
         <div class="detection-item">
-          <h3>交通标志识别</h3>
+          <div class="detection-header">
+            <h3>🚦 交通标志识别</h3>
+            <span class="detection-count">检测到 2 个标志</span>
+          </div>
           <div class="signs-detected">
             <div class="detected-sign">
               <div class="sign-icon stop-sign">停</div>
-              <span>停止标志</span>
-              <span class="confidence">置信度: 98%</span>
+              <div class="sign-info">
+                <span class="sign-name">停止标志</span>
+                <div class="confidence-bar">
+                  <div class="confidence-fill" style="width: 98%"></div>
+                  <span class="confidence">置信度: 98%</span>
+                </div>
+              </div>
             </div>
             <div class="detected-sign">
               <div class="sign-icon speed-limit">50</div>
-              <span>限速50</span>
-              <span class="confidence">置信度: 95%</span>
+              <div class="sign-info">
+                <span class="sign-name">限速50</span>
+                <div class="confidence-bar">
+                  <div class="confidence-fill" style="width: 95%"></div>
+                  <span class="confidence">置信度: 95%</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         <div class="detection-item">
-          <h3>障碍物检测显示</h3>
+          <div class="detection-header">
+            <h3>⚠️ 障碍物检测显示</h3>
+            <span class="detection-count">检测到 2 个障碍物</span>
+          </div>
           <div class="obstacles-detected">
-            <div class="detected-obstacle">
-              <span>类型: 车辆</span>
-              <span>距离: 15.2 m</span>
-              <span>速度: 30 km/h</span>
+            <div class="detected-obstacle obstacle-vehicle">
+              <div class="obstacle-icon">🚗</div>
+              <div class="obstacle-details">
+                <div class="detail-row">
+                  <span class="detail-label">类型:</span>
+                  <span class="detail-value">车辆</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">距离:</span>
+                  <span class="detail-value warning">15.2 m</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">速度:</span>
+                  <span class="detail-value">30 km/h</span>
+                </div>
+              </div>
             </div>
-            <div class="detected-obstacle">
-              <span>类型: 行人</span>
-              <span>距离: 28.5 m</span>
-              <span>速度: 5 km/h</span>
+            <div class="detected-obstacle obstacle-pedestrian">
+              <div class="obstacle-icon">🚶</div>
+              <div class="obstacle-details">
+                <div class="detail-row">
+                  <span class="detail-label">类型:</span>
+                  <span class="detail-value">行人</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">距离:</span>
+                  <span class="detail-value">28.5 m</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">速度:</span>
+                  <span class="detail-value">5 km/h</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -136,31 +215,59 @@
         <h2>模拟参数调节</h2>
         <div class="params-grid">
           <div class="param-item">
-            <label>模拟速度</label>
-            <input type="range" min="0.5" max="3" step="0.1" value="1.0">
-            <span>1.0x</span>
+            <label>
+              <span class="param-icon">⏱️</span>
+              模拟速度
+            </label>
+            <input type="range" min="0.5" max="3" step="0.1" value="1.0" class="param-slider">
+            <div class="param-value">
+              <span class="value-display">1.0x</span>
+            </div>
           </div>
           <div class="param-item">
-            <label>天气条件</label>
-            <select>
-              <option>晴天</option>
-              <option>雨天</option>
-              <option>雾天</option>
-              <option>雪天</option>
-            </select>
+            <label>
+              <span class="param-icon">🌤️</span>
+              天气条件
+            </label>
+            <div class="custom-select">
+              <div class="select-input" data-select="weather">
+                <span class="select-value">晴天</span>
+                <span class="select-arrow">▲</span>
+              </div>
+              <div class="select-dropdown" data-dropdown="weather">
+                <div class="select-option" data-value="晴天">晴天</div>
+                <div class="select-option" data-value="雨天">雨天</div>
+                <div class="select-option" data-value="雾天">雾天</div>
+                <div class="select-option" data-value="雪天">雪天</div>
+              </div>
+            </div>
           </div>
           <div class="param-item">
-            <label>道路类型</label>
-            <select>
-              <option>城市道路</option>
-              <option>高速公路</option>
-              <option>乡村道路</option>
-            </select>
+            <label>
+              <span class="param-icon">🛣️</span>
+              道路类型
+            </label>
+            <div class="custom-select">
+              <div class="select-input" data-select="road">
+                <span class="select-value">城市道路</span>
+                <span class="select-arrow">▲</span>
+              </div>
+              <div class="select-dropdown" data-dropdown="road">
+                <div class="select-option" data-value="城市道路">城市道路</div>
+                <div class="select-option" data-value="高速公路">高速公路</div>
+                <div class="select-option" data-value="乡村道路">乡村道路</div>
+              </div>
+            </div>
           </div>
           <div class="param-item">
-            <label>交通流量</label>
-            <input type="range" min="1" max="10" step="1" value="5">
-            <span>中等</span>
+            <label>
+              <span class="param-icon">🚦</span>
+              交通流量
+            </label>
+            <input type="range" min="1" max="10" step="1" value="5" class="param-slider">
+            <div class="param-value">
+              <span class="value-display">中等</span>
+            </div>
           </div>
         </div>
       </section>
@@ -169,28 +276,34 @@
         <h2>驾驶数据统计</h2>
         <div class="stats-grid">
           <div class="stat-item">
+            <div class="stat-icon">📏</div>
             <label>总行驶距离</label>
-            <span class="stat-value">12.5 km</span>
+            <span class="stat-value">12.5 <small>km</small></span>
           </div>
           <div class="stat-item">
+            <div class="stat-icon">⚡</div>
             <label>平均速度</label>
-            <span class="stat-value">42 km/h</span>
+            <span class="stat-value">42 <small>km/h</small></span>
           </div>
           <div class="stat-item">
+            <div class="stat-icon">⏰</div>
             <label>模拟时间</label>
-            <span class="stat-value">18 min</span>
+            <span class="stat-value">18 <small>min</small></span>
           </div>
           <div class="stat-item">
+            <div class="stat-icon">🛑</div>
             <label>急刹车次数</label>
-            <span class="stat-value">2</span>
+            <span class="stat-value">2 <small>次</small></span>
           </div>
           <div class="stat-item">
+            <div class="stat-icon">🚀</div>
             <label>加速次数</label>
-            <span class="stat-value">8</span>
+            <span class="stat-value">8 <small>次</small></span>
           </div>
           <div class="stat-item">
+            <div class="stat-icon">⛽</div>
             <label>油耗模拟</label>
-            <span class="stat-value">1.2 L</span>
+            <span class="stat-value">1.2 <small>L</small></span>
           </div>
         </div>
       </section>
@@ -200,6 +313,9 @@
       <p>&copy; 2025 自动驾驶技术模拟应用 | 演示版本</p>
     </footer>
   </div>
+
+  <!-- Message提示容器 -->
+  <div id="message-container" class="message-container"></div>
 
   <script type="module" src="./app.js"></script>
 </body>
