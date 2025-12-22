@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自动驾驶技术模拟应用</title>
+  <script type="module" crossorigin src="/assets/index-CQ17flBF.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CASC0sLj.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>自动驾驶技术模拟应用</h1>
+      <div class="header-info">
+        <span>模拟状态: <strong>运行中</strong></span>
+        <span>当前场景: <strong>城市道路</strong></span>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="simulation-view">
+        <h2>模拟驾驶视图</h2>
+        <div class="view-container">
+          <div class="road-simulation">
+            <div class="road"></div>
+            <div class="vehicle"></div>
+            <div class="obstacles">
+              <div class="obstacle obstacle-1"></div>
+              <div class="obstacle obstacle-2"></div>
+            </div>
+            <div class="traffic-signs">
+              <div class="sign stop-sign">停</div>
+              <div class="sign speed-limit">50</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard">
+        <h2>车辆状态仪表盘</h2>
+        <div class="dashboard-grid">
+          <div class="metric">
+            <label>速度</label>
+            <span class="value">45 km/h</span>
+          </div>
+          <div class="metric">
+            <label>加速度</label>
+            <span class="value">0.8 m/s²</span>
+          </div>
+          <div class="metric">
+            <label>方向盘角度</label>
+            <span class="value">-5°</span>
+          </div>
+          <div class="metric">
+            <label>刹车状态</label>
+            <span class="value">正常</span>
+          </div>
+          <div class="metric">
+            <label>油门状态</label>
+            <span class="value">35%</span>
+          </div>
+          <div class="metric">
+            <label>GPS定位</label>
+            <span class="value">N39.9087°, E116.3975°</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="detection">
+        <div class="detection-item">
+          <h3>交通标志识别</h3>
+          <div class="signs-detected">
+            <div class="detected-sign">
+              <div class="sign-icon stop-sign">停</div>
+              <span>停止标志</span>
+              <span class="confidence">置信度: 98%</span>
+            </div>
+            <div class="detected-sign">
+              <div class="sign-icon speed-limit">50</div>
+              <span>限速50</span>
+              <span class="confidence">置信度: 95%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="detection-item">
+          <h3>障碍物检测显示</h3>
+          <div class="obstacles-detected">
+            <div class="detected-obstacle">
+              <span>类型: 车辆</span>
+              <span>距离: 15.2 m</span>
+              <span>速度: 30 km/h</span>
+            </div>
+            <div class="detected-obstacle">
+              <span>类型: 行人</span>
+              <span>距离: 28.5 m</span>
+              <span>速度: 5 km/h</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls">
+        <h2>车辆控制界面</h2>
+        <div class="control-panel">
+          <div class="control-group">
+            <label>模式选择</label>
+            <div class="mode-buttons">
+              <button class="mode-btn active">自动模式</button>
+              <button class="mode-btn">手动模式</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>方向控制</label>
+            <div class="direction-pad">
+              <button class="dir-btn up">↑</button>
+              <div class="middle-row">
+                <button class="dir-btn left">←</button>
+                <button class="dir-btn right">→</button>
+              </div>
+              <button class="dir-btn down">↓</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>油门/刹车</label>
+            <div class="pedals">
+              <button class="pedal gas">油门</button>
+              <button class="pedal brake">刹车</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="parameters">
+        <h2>模拟参数调节</h2>
+        <div class="params-grid">
+          <div class="param-item">
+            <label>模拟速度</label>
+            <input type="range" min="0.5" max="3" step="0.1" value="1.0">
+            <span>1.0x</span>
+          </div>
+          <div class="param-item">
+            <label>天气条件</label>
+            <select>
+              <option>晴天</option>
+              <option>雨天</option>
+              <option>雾天</option>
+              <option>雪天</option>
+            </select>
+          </div>
+          <div class="param-item">
+            <label>道路类型</label>
+            <select>
+              <option>城市道路</option>
+              <option>高速公路</option>
+              <option>乡村道路</option>
+            </select>
+          </div>
+          <div class="param-item">
+            <label>交通流量</label>
+            <input type="range" min="1" max="10" step="1" value="5">
+            <span>中等</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="statistics">
+        <h2>驾驶数据统计</h2>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <label>总行驶距离</label>
+            <span class="stat-value">12.5 km</span>
+          </div>
+          <div class="stat-item">
+            <label>平均速度</label>
+            <span class="stat-value">42 km/h</span>
+          </div>
+          <div class="stat-item">
+            <label>模拟时间</label>
+            <span class="stat-value">18 min</span>
+          </div>
+          <div class="stat-item">
+            <label>急刹车次数</label>
+            <span class="stat-value">2</span>
+          </div>
+          <div class="stat-item">
+            <label>加速次数</label>
+            <span class="stat-value">8</span>
+          </div>
+          <div class="stat-item">
+            <label>油耗模拟</label>
+            <span class="stat-value">1.2 L</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2025 自动驾驶技术模拟应用 | 演示版本</p>
+    </footer>
+  </div>
+
+</body>
+</html>
